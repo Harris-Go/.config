@@ -326,7 +326,17 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+
+    awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 5") end),
+    awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight -inc 5") end),
+    awful.key({ }, "XF86AudioNext", function () awful.util.spawn("playerctl next") end),
+    awful.key({ }, "XF86AudioPrev", function () awful.util.spawn("playerctl previous") end),
+    awful.key({ }, "XF86AudioPlay", function () awful.util.spawn("playerctl play-pause") end),
+    awful.key({ }, "XF86AudioMute", function () awful.util.spawn("amixer set Master toggle-mute") end),
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 5%+") end),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 5%-") end),
+    awful.key({ }, "XF86AudioMicMute", function () awful.util.spawn("amixer set Capture toggle-mute") end)
 )
 
 clientkeys = gears.table.join(
@@ -563,7 +573,7 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
--- Autostart Applications
-awful.spawn.with_shell("nitrogen --restore")
+-- Custom Commands
+gears.wallpaper.maximized("/home/harris/Pictures/wallpaper.png", s)
 awful.spawn.with_shell("light-locker")
 awful.spawn.with_shell("compton")
