@@ -1,0 +1,60 @@
+add_newline = true
+
+format = '''
+$shell[](fg:#2e3440 bg:#434c5e)$battery[](fg:#434c5e bg:#5e81ac)$time[](fg:#5e81ac bg:#4c566a)$directory[](fg:#4c566a)$python$git_branch
+$cmd_duration$sudo$character'''
+
+[character]
+success_symbol = "[❯](bold #a3be8c)"
+error_symbol = "[❯](bold #bf616a)"
+
+[directory]
+home_symbol = "🏠"
+read_only = "🔒"
+format = "[ $path]($style)[$read_only ]($style)"
+style = "bg:#4c566a fg:#e5e9f0"
+
+[shell]
+bash_indicator = ""
+zsh_indicator = ""
+powershell_indicator = ""
+format = "[ $indicator]($style)"
+style = "fg:#eceff4 bg:#2e3440"
+disabled = false
+
+[battery]
+charging_symbol = "🔌"
+full_symbol = "🔋"
+unknown_symbol = "❓"
+discharging_symbol = "🔋"
+empty_symbol = "❗"
+format = "[$symbol$percentage]($style bg:#434c5e)"
+disabled = false
+
+[[battery.display]]
+threshold = 30
+style = "bold #bf616a"
+
+[[battery.display]]
+threshold = 60
+style = "bold #ebcb8b"
+
+[[battery.display]]
+threshold = 100
+style = "bold #a3be8c"
+
+[time]
+format = "[🕓$time]($style bg:#5e81ac)"
+time_format = "%R"
+style = "bold #2e3440"
+disabled = false
+
+[cmd_duration]
+show_milliseconds = false
+format = "[⏱️$duration]($style) "
+
+[sudo]
+format = "[$symbol]($style)"
+symbol = "☢️"
+allow_windows = false
+disabled = true
