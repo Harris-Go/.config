@@ -15,9 +15,9 @@ format = "[ $path]($style)[$read_only ]($style)"
 style = "bg:#4c566a fg:#e5e9f0"
 
 [shell]
-bash_indicator = ""
-zsh_indicator = ""
-powershell_indicator = ""
+bash_indicator = "🐧"
+zsh_indicator = "🐧"
+powershell_indicator = "🪟"
 format = "[ $indicator]($style)"
 style = "fg:#eceff4 bg:#2e3440"
 disabled = false
